@@ -1,6 +1,9 @@
 <div class="flash"><p><%= flash[:message] %></p></div>
 <h2><%= @article.title %></h2>
-Tags: <%=raw tag_links(@article.tags) %> <br/>
+Tags: <%= raw tag_links(@article.tags) %> <br/>
+  <% if @article.image_file_name %>
+    <%= image_tag @article.image.url %>
+  <% end %>
 <p><%= @article.body %></p>
 
 <h3>Comments (<%= @article.comments.count %>)</h3>
