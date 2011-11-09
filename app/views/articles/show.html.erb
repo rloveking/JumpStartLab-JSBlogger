@@ -1,0 +1,10 @@
+<div class="flash"><p><%= flash[:message] %></p></div>
+<h2><%= @article.title %></h2>
+Tags: <%=raw tag_links(@article.tags) %> <br/>
+<p><%= @article.body %></p>
+
+<h3>Comments (<%= @article.comments.count %>)</h3>
+<%= render :partial => 'comment', :collection => @article.comments %>
+
+<%= render :partial => 'comment_form' %>
+<%= link_to "<< Back to Articles List", articles_path %>

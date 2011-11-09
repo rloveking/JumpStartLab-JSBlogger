@@ -1,0 +1,18 @@
+<div class="flash"><p><%= flash[:message] %></p></div>
+<h1>All Tags</h1>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li>
+      <b><%=raw link_to tag.name, tag_path(tag) %></b><br/>
+      <i>Actions:
+      <%= link_to "edit", edit_tag_path(tag) %>,
+      <%= link_to "remove", tag, :method => :delete,
+               :confirm => "Remove the tag '#{tag.name}'?" %> 
+      </i>
+      <p>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New Tag", new_tag_path %>
